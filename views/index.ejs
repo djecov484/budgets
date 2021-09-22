@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/normalize.css">
+    <link rel="stylesheet" href="/skeleton.css">
+    <title>Document</title>
+</head>
+<body>
+
+<div class="container">
+    <h1>Budget Item</h1>
+    <% for (expenses of allBudgets) {
+        bankAccount = bankAccount+parseInt(expenses.amount)
+    } %>
+    <h3>Bank Account Total: $ <%= bankAccount %></h3>
+    
+    
+    
+    <table>
+
+        <tr><th>Date</th><th>Name</th><th>Amount</th></tr>
+        <tr> 
+            <% for(let i= 0; i<allBudgets.length; i++) { %>
+                <td>
+                    <%= allBudgets[i].date %>
+                </td> 
+                <td><a href="/budgets/<%= i %>">
+                  <%= allBudgets[i].name %></a>
+                </td>
+                 <td>  
+                      <%= allBudgets[i].amount %> 
+                </td> 
+            </tr>
+        
+       <%  } %>
+    </table>
+     <button><a href='/budgets/new'>Add New Item</a></button>
+</div>
+    
+    
+
+</body>
+</html>
